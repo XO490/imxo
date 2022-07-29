@@ -1,0 +1,25 @@
+/*
+ * Instant Messenger by XO
+ * Copyright 2022 XO490
+ * https://t.me/xo490
+*/
+
+syntax = "proto3";
+
+option go_package = "imxo/proto";
+
+package imxo;
+
+service Sender {
+    rpc SendMessage (stream FromClient) returns (stream FromServer) {}
+}
+
+message FromClient {
+    string uid = 1;
+    string text = 2;
+}
+
+message FromServer {
+    string uid = 1;
+    string text = 2;
+}
